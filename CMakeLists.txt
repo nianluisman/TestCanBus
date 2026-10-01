@@ -7,4 +7,15 @@ add_executable(TestLinuxCan main.cpp
         CanApplication/CanApp.cpp
         CanApplication/CanApp.h
         Drivers/CanBus.cpp
-        Drivers/CanBus.h)
+        Drivers/CanBus.h
+        Drivers/SocketCan.cpp
+        Drivers/SocketCan.h)
+
+target_sources(TestLinuxCan PRIVATE
+        third_party/libcanard/libcanard/canard.c
+)
+
+target_include_directories(TestLinuxCan PRIVATE
+        third_party/libcanard/libcanard
+        third_party/libcanard/lib/cavl2
+)
